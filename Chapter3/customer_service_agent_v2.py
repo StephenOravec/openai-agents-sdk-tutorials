@@ -21,7 +21,7 @@ def get_order_status(orderID: int) -> str:
 # Define an agent
 agent = Agent(name="Customer service agent",
               instructions="You are an AI Agent that helps respond to customer queries for a local paper company",
-              model="gpt-4o"
+              model="gpt-4o",
               tools=[get_order_status])
 
 # Run the Control Logic Framework
