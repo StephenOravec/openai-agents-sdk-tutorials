@@ -1,6 +1,7 @@
 import os
 from dotenv import load_dotenv
-from agents import Agent, Runner, function_tool, StopAtTools
+from agents import Agent, Runner, function_tool
+from agents.agent import StopAtTools
 
 load_dotenv()
 api_key = os.getenv("OPENAI_API_KEY")
@@ -14,7 +15,7 @@ agent = Agent(
     instructions="Generate and return an invoice when requested.",
     model="gpt-4o",
     tools=[create_invoice],
-    stop=StopAtTools.stop_at_tool_names(["create_invoice"])
+    tool_use_behavior=StopAtTools(stop_at_tool_names=["create_invoice"])
 )
 
 # Run the Control Logic Framework
