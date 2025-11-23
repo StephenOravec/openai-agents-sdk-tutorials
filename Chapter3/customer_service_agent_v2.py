@@ -25,6 +25,6 @@ agent = Agent(name="Customer service agent",
               tools=[get_order_status])
 
 # Run the Control Logic Framework
-result = Runner.run_sync(agent, "How do I cancel my order?")
+result = Runner.run_sync(agent, "What's the status of my order? My Order ID is 200")
 # Print the result
 print(result.final_output)
