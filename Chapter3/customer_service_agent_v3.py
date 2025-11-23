@@ -29,7 +29,9 @@ customer_retention_agent = Agent(
 agent = Agent(name="Customer service agent",
               instructions="You are an AI Agent that helps respond to customer queries for a local paper company",
               model="gpt-4o",
-              tools=[get_order_status])
+              tools=[get_order_status],
+              handoffs=[customer_retention_agent]
+              )
 
 # Run the Control Logic Framework
 result = Runner.run_sync(agent, "What's the status of my order? My Order ID is 200")
