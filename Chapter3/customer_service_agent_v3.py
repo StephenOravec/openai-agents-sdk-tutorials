@@ -18,6 +18,13 @@ def get_order_status(orderID: int) -> str:
     elif orderID in (300, 301):
         return "Cancelled"
 
+# Define the customer retention agent
+customer_retention_agent = Agent(
+    name="Customer Retention Agent",
+    instructions="You are an AI agent that responds to customers that want to close their accounts and retains their business. Be very courteous, relatable, and kind. Offer discounts up to 10% if it helps",
+    model="gpt-4.1"
+)
+
 # Define an agent
 agent = Agent(name="Customer service agent",
               instructions="You are an AI Agent that helps respond to customer queries for a local paper company",
